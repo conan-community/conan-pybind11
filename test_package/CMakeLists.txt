@@ -5,6 +5,7 @@ project(example)
 
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 include_directories(SYSTEM ${CONAN_INCLUDE_DIRS})
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
@@ -31,6 +32,8 @@ if (NOT ${EXAMPLE_PYTHON_VERSION} STREQUAL "")
     find_package(PythonLibs ${EXAMPLE_PYTHON_VERSION} REQUIRED)
   endif()
 else()
+  set(PYTHON_INCLUDE_DIR "C:/Python27/include")
+  set(PYTHON_LIBRARY "C:/Python27/libs/python27.lib")
   find_package(PythonLibs REQUIRED)
 endif()
 
