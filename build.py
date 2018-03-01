@@ -13,7 +13,7 @@ if __name__ == "__main__":
                               "arch": "x86_64", "build_type": "Release"},
                     options={}, env_vars={}, build_requires={})
     else:
-        builder.add(settings={"compiler":"apple-clang", "compiler.version": "9",
+        builder.add(settings={"compiler":"apple-clang", "compiler.version": "9.0",
                               "arch": "x86_64", "build_type": "Release"},
                     options={}, env_vars={}, build_requires={})
     builder.run()
