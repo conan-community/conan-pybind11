@@ -5,8 +5,8 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
 
 set(CMAKE_CXX_STANDARD 11)
-find_package(PythonLibs REQUIRED)
-find_package(PythonInterp REQUIRED)
+find_package(PythonLibs 2.7 REQUIRED)
+find_package(PythonInterp 2.7 REQUIRED)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
