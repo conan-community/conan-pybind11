@@ -15,6 +15,7 @@ linux: &linux
 osx: &osx
    os: osx
    language: generic
+   python: "2.7"
 matrix:
    include:
       - <<: *linux
