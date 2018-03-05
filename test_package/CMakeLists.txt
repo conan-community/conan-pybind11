@@ -5,9 +5,6 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
 
 set(CMAKE_CXX_STANDARD 11)
-#find_package(PythonLibs 2.7 REQUIRED)
-# find_package(PythonInterp 2.7 REQUIRED)
-find_package(pybind11 REQUIRED)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
@@ -16,9 +13,13 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
+# Using the pybind cmake helpers:
+set(PYBIND11_PYTHON_VERSION 2.7)
+find_package(pybind11 REQUIRED)
 pybind11_add_module(example MODULE example.cpp)
-#target_compile_features(example PRIVATE cxx_std_11)
 
+# USING plain cmake:
+# find_package(PythonLibs 2.7 REQUIRED)
 # add_library(example SHARED "example.cpp")
 # target_include_directories(example PRIVATE ${PYTHON_INCLUDE_DIRS})
 # target_link_libraries(example PUBLIC ${PYTHON_LIBRARY})
