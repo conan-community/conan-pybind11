@@ -1,5 +1,4 @@
 from conans import ConanFile, tools, CMake
-import os
 
 
 class PyBind11Conan(ConanFile):
@@ -13,14 +12,12 @@ class PyBind11Conan(ConanFile):
     no_copy_sources = True
 
     def source(self):
-        tools.download("https://github.com/pybind/pybind11/archive/v%s.tar.gz" % self.version,
-                       "pybind11.tar.gz")
-        tools.unzip("pybind11.tar.gz")
-        os.unlink("pybind11.tar.gz")
+        tools.get("%s/archive/v%s.tar.gz" % (self.homepage, self.version))
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(defs={"PYBIND11_TEST": False}, source_folder="pybind11-%s" % self.version)
+        cmake.definitions["PYBIND11_TEST"] = False
+        cmake.configure(source_folder="pybind11-%s" % self.version)
         cmake.build()
         cmake.install()
 
