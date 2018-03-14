@@ -1,5 +1,4 @@
 from conans import ConanFile, tools, CMake
-import os
 
 
 class PyBind11Conan(ConanFile):
