@@ -2,7 +2,7 @@ env:
    global:
      - CONAN_REFERENCE: "pybind11/2.2.2"
      - CONAN_USERNAME: "conan"
-     - CONAN_STABLE_BRANCH_PATTERN: "stable/*"
+     - CONAN_STABLE_BRANCH_PATTERN: "release/*"
      - CONAN_CHANNEL: "stable"
 
 linux: &linux
